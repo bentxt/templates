@@ -1,0 +1,20 @@
+PANDOC = pandoc
+PANDOC_FLAGS = -f markdown -t html --tab-stop=2
+ 
+css_name = style.css
+
+MdHtml(text) =
+	md_name = $(addsuffix .text, $(text))
+	html_name = $(addsuffix .html, $(text))
+ 
+	$(html_name): $(md_name) $(css_name)
+		$(PANDOC) $(PANDOC_FLAGS)  -c $(css_name) $< -o $@
+ 
+	value $(html_name)
+ 
+.DEFAULT: $(MdHtml todo)
+
+
+.PHONY: clean
+clean:
+	rm -f *.omc *.html
