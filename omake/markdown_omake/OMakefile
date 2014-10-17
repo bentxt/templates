@@ -1,3 +1,4 @@
+# credit to 'kazeula' via https://gist.github.com/914614.git
 PANDOC = pandoc
 PANDOC_FLAGS = -f markdown -t html --tab-stop=2
  
